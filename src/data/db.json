@@ -1,0 +1,125 @@
+{
+    "client": [
+        {
+            "id":0,
+            "name":"",
+            "document":"",
+            "flightsOrigin":"",
+            "flightsDestiny":"",
+            "passengers":[
+                {
+                    "adults":"",
+                    "kids":"",
+                    "babys":""
+                }
+            ],
+            "baggage-type":""
+
+        }
+    ],
+
+    "origin":[
+        {
+            "country":"Colombia",
+            "city":"Medellin"
+        },
+        {
+            "country":"Estados Unidos",
+            "city":"Washington D. C."
+        },
+        {
+            "country":"Argentina",
+            "city":"Buenos Aires"
+        },
+
+        {
+            "country":"China",
+            "city":"Pekin"
+        },
+        {
+            "country":"Japon",
+            "city":"Tokio"
+        },
+        {
+            "country":"Brazil",
+            "city":"Brasilia"
+        },
+        {
+            "country":"España",
+            "city":"Madrid"
+        },
+        {
+            "country":"Francia",
+            "city":"Paris"
+        },
+        {
+            "country":"Italia",
+            "city":"Roma"
+        },
+        {
+            "country":"Alemania",
+            "city":"Berlin"
+        }
+        
+    ],
+
+    "destiny":[
+        {
+            "country":"Colombia",
+            "city":"Medellin"
+        },
+        {
+            "country":"Estados Unidos",
+            "city":"Washington D. C."
+        },
+        {
+            "country":"Argentina",
+            "city":"Buenos Aires"
+        },
+
+        {
+            "country":"China",
+            "city":"Pekin"
+        },
+        {
+            "country":"Japon",
+            "city":"Tokio"
+        },
+        {
+            "country":"Brazil",
+            "city":"Brasilia"
+        },
+        {
+            "country":"España",
+            "city":"Madrid"
+        },
+        {
+            "country":"Francia",
+            "city":"Paris"
+        },
+        {
+            "country":"Italia",
+            "city":"Roma"
+        },
+        {
+            "country":"Alemania",
+            "city":"Berlin"
+        }
+        
+    ],
+
+    "flights": [
+        {
+            "id":0,
+            "dateArrive":"",
+            "dateLeaved":"",
+            "origin":"",
+            "destiny":"",
+            "price":"",
+            "seats":"",
+            "layover":""
+        }
+    ]
+
+
+}
