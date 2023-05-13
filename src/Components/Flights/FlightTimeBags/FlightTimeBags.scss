@@ -1,0 +1,30 @@
+.card{
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    justify-content: space-between;
+    &__time{
+        display: flex;
+        align-items: center;
+    
+    }
+    &__bags{
+        display: flex;
+        gap: 10px;
+    }
+    &__bag{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: white;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 3px;
+        border: gray 1px solid;
+        &:hover{
+        color: white;    
+        background-color: #a70b6c;
+        }    
+    }
+}
