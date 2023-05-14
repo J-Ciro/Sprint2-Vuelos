@@ -9,9 +9,13 @@ const FlightTimeBags = () => {
         <section className='card__time'>
             <h3>05:50 PM</h3>
             <div className='card__timescale'>
-                <span>1h 57min</span>
-                <span>*---*</span>
-                <span>Sin escala</span>
+                <span className='card__timemid'>1h 57min</span>
+                <div className='card__timeline'>
+                <span className='card__circle'></span>
+                <span className='card__line'> </span>
+                <span className='card__circle'> </span>
+                </div>
+                <span className='card__scales'>Sin escala</span>
             </div>
             <h3>06:47 PM</h3>
         </section>

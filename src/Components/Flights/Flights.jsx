@@ -11,6 +11,8 @@ const Flights = () => {
         <section className='main__content'>
           <FlightNavBar/>
           <FlightTimeBags/>
+          <FlightTimeBags/>
+
         </section>
         <aside className='main__aside'>
             <h4>Tu reservacion</h4>
