@@ -1,0 +1,27 @@
+.total{
+    display: flex;
+    gap: 10px;
+    color: gray;
+    width: 20vw;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 0px 0px 5px 5px;
+    &__label,
+    &__cost{
+        ul{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            list-style: none;
+            margin: 0;
+            padding:0;
+        }
+    }
+    
+        &__finalLabel,
+        &__finalPrice{
+            color: black;
+            font-weight: 600;
+        }
+
+}
