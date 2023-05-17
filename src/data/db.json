@@ -27,48 +27,48 @@
         {
             "country":"Estados Unidos",
             "city":"Washington D. C.",
-            "code":""
+            "code":"DCA"
         },
         {
             "country":"Argentina",
             "city":"Buenos Aires",
-            "code":""
+            "code":"EZE"
         },
 
         {
             "country":"China",
             "city":"Pekin",
-            "code":""
+            "code":"PEK"
         },
         {
             "country":"Japon",
             "city":"Tokio",
-            "code":""
+            "code":"HND"
         },
         {
             "country":"Brazil",
             "city":"Brasilia",
-            "code":""
+            "code":"BSB"
         },
         {
             "country":"España",
             "city":"Madrid",
-            "code":""
+            "code":"MAD"
         },
         {
             "country":"Francia",
             "city":"Paris",
-            "code":""
+            "code":"CDG"
         },
         {
             "country":"Italia",
             "city":"Roma",
-            "code":""
+            "code":"FCO"
         },
         {
             "country":"Alemania",
             "city":"Berlin",
-            "code":""
+            "code":"BER"
         }
         
     ],
