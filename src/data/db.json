@@ -1,5 +1,5 @@
 {
-    "client": [
+    "clients": [
         {
             "id":0,
             "name":"",
@@ -8,102 +8,67 @@
             "flightsDestiny":"",
             "passengers":[
                 {
-                    "adults":"",
-                    "kids":"",
-                    "babys":""
+                    "adult":"",
+                    "child":"",
+                    "baby":""
                 }
             ],
             "baggage-type":""
 
         }
     ],
-
-    "origin":[
+    
+    "places":[
         {
             "country":"Colombia",
-            "city":"Medellin"
+            "city":"Medellin",
+            "code":"EOH"
         },
         {
             "country":"Estados Unidos",
-            "city":"Washington D. C."
+            "city":"Washington D. C.",
+            "code":""
         },
         {
             "country":"Argentina",
-            "city":"Buenos Aires"
+            "city":"Buenos Aires",
+            "code":""
         },
 
         {
             "country":"China",
-            "city":"Pekin"
+            "city":"Pekin",
+            "code":""
         },
         {
             "country":"Japon",
-            "city":"Tokio"
+            "city":"Tokio",
+            "code":""
         },
         {
             "country":"Brazil",
-            "city":"Brasilia"
+            "city":"Brasilia",
+            "code":""
         },
         {
             "country":"España",
-            "city":"Madrid"
+            "city":"Madrid",
+            "code":""
         },
         {
             "country":"Francia",
-            "city":"Paris"
+            "city":"Paris",
+            "code":""
         },
         {
             "country":"Italia",
-            "city":"Roma"
+            "city":"Roma",
+            "code":""
         },
         {
             "country":"Alemania",
-            "city":"Berlin"
-        }
-        
-    ],
-
-    "destiny":[
-        {
-            "country":"Colombia",
-            "city":"Medellin"
-        },
-        {
-            "country":"Estados Unidos",
-            "city":"Washington D. C."
-        },
-        {
-            "country":"Argentina",
-            "city":"Buenos Aires"
-        },
-
-        {
-            "country":"China",
-            "city":"Pekin"
-        },
-        {
-            "country":"Japon",
-            "city":"Tokio"
-        },
-        {
-            "country":"Brazil",
-            "city":"Brasilia"
-        },
-        {
-            "country":"España",
-            "city":"Madrid"
-        },
-        {
-            "country":"Francia",
-            "city":"Paris"
-        },
-        {
-            "country":"Italia",
-            "city":"Roma"
-        },
-        {
-            "country":"Alemania",
-            "city":"Berlin"
+            "city":"Berlin",
+            "code":""
         }
         
     ],
@@ -117,9 +82,8 @@
             "destiny":"",
             "price":"",
             "seats":"",
-            "layover":""
+            "layover":"",
+            "code":""
         }
     ]
-
-
 }
