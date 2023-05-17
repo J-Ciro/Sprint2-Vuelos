@@ -1,7 +1,5 @@
 import React from 'react'
 import FlightNavBar from '../Flights/FlightNavbar/FlightNavBar'
-import FlightTimeBags from '../Flights/FlightTimeBags/FlightTimeBags'
-import FlightReservation from '../Flights/FlightReservation/FlightReservation'
 import FlightPrice from '../Flights/FlightPrice/FlightPrice'
 import ButtonData from '../ButtonData/ButtonData'
 import Seats from './Seats/Seats'
