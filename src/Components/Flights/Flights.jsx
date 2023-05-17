@@ -28,7 +28,7 @@ const Flights = () => {
               <h4>Costo de vuelo</h4>
             <FlightPrice/>
           </div>
-          <ButtonData label="Seleccionar Asiento" className="seats"/>
+          <ButtonData label="Seleccionar Asiento" customStyle={true}/>
         </aside>
     </div>
   )

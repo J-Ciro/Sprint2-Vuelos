@@ -1,8 +1,8 @@
 import React from 'react'
-
-const ButtonData = ({label, className}) => {
+import './ButtonData.scss'
+const ButtonData = ({label, customStyle}) => {
   return (
-    <button className={`btnData ${className} `}>{label}</button>
+    <button className={customStyle ? 'btnData seats' : 'btnData'}>{label}</button>
   )
 }
 
