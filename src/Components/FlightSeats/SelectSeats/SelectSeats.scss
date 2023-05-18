@@ -1,0 +1,81 @@
+
+.main{
+ 
+ &__seatsContent{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 19%;
+    flex-wrap: wrap;
+ }
+ &__chooseSeat{
+    display: flex;
+ }
+ &__seatsList{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-wrap: wrap;
+  
+ }
+ &__seatsLetter{
+    display: flex;
+    gap: 10px;
+ }
+    &__a,
+    &__b,
+    &__c{
+        
+        background-color: white;
+        padding: 1em 1.3em;
+        gap: 10px;
+        font-size: 1rem;
+        width: 10px;
+        border-radius: 5px;
+        font-family: 'Wix Madefor Text', sans-serif;
+    }
+    &__seats{
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    &__numbers{
+        background-color: white;
+        /* background-color: white; */
+        padding: 1em 1.3em;
+        font-size: 1rem;
+        border-radius: 5px;
+        width: 10px;
+    }
+
+    &__exitTitle{
+        span{
+            font-size: 0.8rem;
+        
+        }
+    }
+    &__seatsNumbers{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-right: 25px;
+    }
+    &__fastExit,
+    &__standarTitle{
+        display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    }
+
+    &__standarSeats{
+        display: flex;
+    }
+    &__seatsStandar{
+        display: flex;
+        width: 19%;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+
+}

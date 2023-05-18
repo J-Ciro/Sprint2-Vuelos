@@ -4,21 +4,22 @@ import './Seats.scss'
 const Seats = () => {
   return (
     <>
-     <span className='main__seat'>0</span>
-     <span className='main__seat'>0</span>
-     <span className='main__seat'>0</span>
-     <span className='main__seat'>0</span>
-     <span className='main__seat'>0</span>
-     <span className='main__seat'>0</span>
-     <span className='main__seat'>0</span>
-     <span className='main__seat'>0</span>
-     <span className='main__seat'>0</span>
-     <span className='main__seat'>0</span>
-     <span className='main__seat'>0</span>
-     <span className='main__seat'>0</span>
-     <span className='main__seat'>0</span>
-     <span className='main__seat'>0</span>
-     <span className='main__seat'>0</span>
+     <span className='main__seat active'></span>
+     <span className='main__seat'></span>
+     <span className='main__seat'></span>
+     <span className='main__seat'></span>
+     <span className='main__seat'></span>
+     <span className='main__seat'></span>
+     <span className='main__seat'></span>
+     <span className='main__seat'></span>
+     <span className='main__seat'></span>
+     <span className='main__seat'></span>
+     <span className='main__seat'></span>
+     <span className='main__seat'></span>
+     <span className='main__seat'></span>
+     <span className='main__seat'></span>
+     <span className='main__seat selected'></span>
+
     </>
      
      

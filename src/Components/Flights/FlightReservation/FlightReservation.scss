@@ -3,6 +3,7 @@
     background-color: rgb(255, 255, 255);
     padding: 10px;
     border-radius: 0px 0px 5px 5px;
+    margin-bottom: 20px;
     &__passengers{
         display: flex;
         justify-content: space-between;
@@ -44,4 +45,13 @@
         color: gray;
         font-size: 0.95rem;
     }
+}
+.title{
+        font-family: 'Wix Madefor Text', sans-serif;
+        background-color: #f1eff2;
+        width: 20vw;
+        height:1.5em;
+        padding: 10px;
+        margin: 0px;
+    
 }

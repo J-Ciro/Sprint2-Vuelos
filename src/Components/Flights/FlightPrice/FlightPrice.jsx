@@ -1,27 +1,29 @@
 import React from 'react'
 import './FlightPrice.scss'
-const FlightPrice = () => {
+const FlightPrice = ({prices = [], label = [], total, title}) => {
   return (
+    <div className='invoices'>
+      <h4 className='invoices__title'>{title}</h4>
     <div className='total'>
+        
         <div className='total__label'>
             <ul>
-                <li>Tarifa Base</li>
-                <li>Descuento Promocional</li>
-                <li>Tarifa base con descuento</li>
-                <li>IVA Tarifa</li>
+            {label.map((label, index) => (
+              <li key={index}>{label}</li>
+            ))}
                 <li><span className='total__finalLabel'>Total</span></li>
             </ul>
         </div>
         <div className='total__cost'>
             <ul>
-                <li>$1,505MX</li>
-                <li>$1,505MX</li>
-                <li>$1,505MX</li>
-                <li>$1,505MX</li>
-                <li><span className='total__finalPrice'>$1,505MX</span></li>
+            {prices.map((price, index) => (
+              <li key={index}>{price}</li>
+            ))}
+                <li><span className='total__finalPrice'>{total}</span></li>
             </ul>
         </div>
         
+    </div>
     </div>
   )
 }

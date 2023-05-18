@@ -1,95 +1,106 @@
+.main {
+  padding: 2.5em;
+  display: flex;
+  gap: 30px;
+  background-color: #f5f5f7;
 
-.main{
-    padding: 2em;
+  @media screen and (max-width: 375px) {
+    display: block;
+    width: 100vw;
+  }
+  &__content {
+    width: 70vw;
+  }
+  &__aside {
+    // width: 30vw;
     display: flex;
-    gap: 30px;
-    background-color: #f5f5f7;
-    
-    @media screen and (max-width: 375px) {
-        display: block;
-        width: 100vw;
+    flex-direction: column;
+    // align-items: flex-start;
+    align-items: center;
+    gap: 50px;
+    h4 {
+      font-family: "Wix Madefor Text", sans-serif;
+      background-color: #f1eff2;
+      width: 20vw;
+      height: 1.5em;
+      padding: 10px;
+      margin: 0px;
     }
-    &__content{
-        width: 70vw;
-    }
-    &__aside{
-        // width: 30vw;
-        display: flex;
-        flex-direction: column;
-        // align-items: flex-start;
-        align-items: center;
-        gap: 50px;
-        h4{
-            font-family: 'Wix Madefor Text', sans-serif;
-            background-color: #f1eff2;
-            width: 20vw;
-            height:1.5em;
-            padding: 10px;
-            margin: 0px;
-            
-        }
-    }
- &__seatsContent{
+  }
+  &__seatsContent {
     display: flex;
     flex-direction: column;
     gap: 25px;
     width: 19%;
     flex-wrap: wrap;
- }
- &__chooseSeat{
+  }
+  &__chooseSeat {
     display: flex;
- }
- &__seatsList{
+  }
+  &__seatsList {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     flex-wrap: wrap;
-  
- }
- &__seatsLetter{
+  }
+  &__seatsLetter {
     display: flex;
     gap: 10px;
- }
-    &__a,
-    &__b,
-    &__c{
-        
-        background-color: white;
-        padding: 1em 1.3em;
-        gap: 10px;
-        font-size: 1rem;
-        width: 10px;
-        border-radius: 5px;
-        font-family: 'Wix Madefor Text', sans-serif;
-    }
-    &__seats{
-        display: flex;
-    }
+  }
+  &__a,
+  &__b,
+  &__c {
+    background-color: white;
+    padding: 1em 1.3em;
+    gap: 10px;
+    font-size: 1rem;
+    width: 10px;
+    border-radius: 5px;
+    font-family: "Wix Madefor Text", sans-serif;
+  }
+  &__seats {
+    display: flex;
+    margin-bottom: 20px;
+  }
 
-    &__numbers{
-        background-color: white;
-        /* background-color: white; */
-        padding: 1em 1.3em;
-        font-size: 1rem;
-        border-radius: 5px;
-        width: 10px;
-    }
+  &__numbers {
+    background-color: white;
+    /* background-color: white; */
+    padding: 1em 1.3em;
+    font-size: 1rem;
+    border-radius: 5px;
+    width: 10px;
+  }
 
-    &__exitTitle{
-        span{
-            font-size: 0.8rem;
-        
-        }
+  &__exitTitle {
+    span {
+      font-size: 0.8rem;
     }
-    &__seatsNumbers{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    &__fastExit{
-        display: flex;
+  }
+  &__seatsNumbers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 25px;
+  }
+  &__fastExit,
+  &__standarTitle {
+    display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    }
+  }
 
+  &__standarSeats {
+    display: flex;
+  }
+  &__seatsStandar {
+    display: flex;
+    width: 19%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  &__flightCost {
+    display: flex;
+    flex-direction: column;
+  }
 }

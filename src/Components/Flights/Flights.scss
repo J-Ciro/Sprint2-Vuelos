@@ -3,6 +3,7 @@
     display: flex;
     gap: 30px;
     background-color: #f5f5f7;
+    flex-wrap: wrap;
     
     @media screen and (max-width: 375px) {
         display: block;

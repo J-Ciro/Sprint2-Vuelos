@@ -1,9 +1,11 @@
-import React from 'react'
-import './ButtonData.scss'
-const ButtonData = ({label, customStyle}) => {
+import React from "react";
+import "./ButtonData.scss";
+const ButtonData = ({ label, customStyle }) => {
   return (
-    <button className={customStyle ? 'btnData seats' : 'btnData'}>{label}</button>
-  )
-}
+    <button className={customStyle ? "btnData fill" : "btnData"}>
+      {label}
+    </button>
+  );
+};
 
-export default ButtonData
+export default ButtonData;
