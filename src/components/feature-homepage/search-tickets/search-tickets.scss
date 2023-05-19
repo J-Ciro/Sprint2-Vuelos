@@ -5,7 +5,7 @@
         top: 10%;
         width: 50%;
         padding: 0 20px;
-        background-color: #f6f6f6;
+        background-color: #EDEDED;
         border-radius: 12px;
         box-shadow: 9px 13px 13px -4px rgba(204, 204, 204, 0.7); 
         h3{
@@ -30,7 +30,7 @@
             button.city{
                 display:flex;
                 flex-direction: column;
-                border: 1px solid #cccccc;
+                border: 1px solid white;
                 align-items: center;
                 height: 70px;
                 background-color: white;
@@ -99,6 +99,7 @@
 
 @media (max-width: 850px) {
     .search-ticket{
+        background-color: #a8a8a8;
         position: relative;
         display: flex;
         align-items: center;

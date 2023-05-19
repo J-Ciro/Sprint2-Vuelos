@@ -29,8 +29,7 @@ const SearchTickets= ({formValue, setFormValues}) => {
             .then(function (response) {
                  setPlaces(response.data)
             })
-            .catch(function (error) {
-                // handle error
+            .catch(function (error) { 
                 console.log(error);
             })
     },[])
