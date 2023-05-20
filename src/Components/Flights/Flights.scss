@@ -1,41 +1,40 @@
-.main{
-    padding: 2em;
+.mainn {
+  padding: 2em;
+  display: flex;
+  gap: 30px;
+  background-color: #f5f5f7;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: 375px) {
+    display: block;
+    width: 100vw;
+  }
+  &__content {
+    width: 70vw;
+  }
+  &__aside {
+    // width: 30vw;
     display: flex;
-    gap: 30px;
-    background-color: #f5f5f7;
-    flex-wrap: wrap;
-    
-    @media screen and (max-width: 375px) {
-        display: block;
-        width: 100vw;
+    flex-direction: column;
+    // align-items: flex-start;
+    align-items: center;
+    gap: 50px;
+    h4 {
+      font-family: "Wix Madefor Text", sans-serif !important;
+      background-color: #f1eff2;
+      width: 20vw;
+      height: 1.5em;
+      padding: 10px;
+      margin: 0px;
+      height: 100%;
+      font-size: 1rem;
     }
-    &__content{
-        width: 70vw;
+  }
+
+  .seats {
+    button {
+      background-color: red;
+      color: white;
     }
-    &__aside{
-        // width: 30vw;
-        display: flex;
-        flex-direction: column;
-        // align-items: flex-start;
-        align-items: center;
-        gap: 50px;
-        h4{
-            font-family: 'Wix Madefor Text', sans-serif;
-            background-color: #f1eff2;
-            width: 20vw;
-            height:1.5em;
-            padding: 10px;
-            margin: 0px;
-            
-        }
-    }
-    
-    .seats {
-        button{
-            background-color: red;
-             color: white;
-             
-            
-        }
-    }
+  }
 }

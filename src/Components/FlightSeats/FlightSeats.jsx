@@ -9,18 +9,18 @@ import "../ButtonData/ButtonData.scss";
 
 const FlightSeats = () => {
   return (
-    <div className="main">
-      <section className="main__content">
+    <div className="mainn">
+      <section className="mainn__content">
         <FlightArriveLanding />
       </section>
       <section>
-        <div className="main__flightReservation">
+        <div className="mainn__flightReservation">
           <FlightReservation
             title={"Tu Reservacion"}
             passangers={["1 Adulto"]}
           />
         </div>
-        <div className="main__flightCost">
+        <div className="mainn__flightCost">
           <FlightPrice
             prices={["$1000 MX", "$471 MXN", "$75"]}
             label={["Tarifa Base", "Tarifa base con descuento", "IVA Tarifa"]}

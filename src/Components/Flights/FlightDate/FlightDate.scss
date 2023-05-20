@@ -1,19 +1,24 @@
-.date{
-    &__underline{
-        border-bottom: 1px solid black;
-        width: 25px;
+.date {
+  &__underline {
+    border-bottom: 1px solid black;
+    width: 25px;
     height: 30px;
-}
-&__leave{
+  }
+  &__leave {
     margin-bottom: 20px;
-    
-}
-&__date{
+  }
+  &__date {
     font-weight: 600;
     font-size: 0.9rem;
-}
-&__time{
+  }
+  &__time {
     color: gray;
     font-size: 0.95rem;
-}
+  }
+
+  &__countryTime {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

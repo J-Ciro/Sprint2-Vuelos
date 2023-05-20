@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import FlightNavBar from "./FlightNavbar/FlightNavBar";
 import "./Flights.scss";
 import FlightReservation from "./FlightReservation/FlightReservation";
@@ -8,9 +9,15 @@ import ButtonData from "../ButtonData/ButtonData";
 import "../ButtonData/ButtonData.scss";
 
 const Flights = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/flights/seats");
+  };
+
   return (
-    <div className="main">
-      <section className="main__content">
+    <div className="mainn">
+      <section className="mainn__content">
         <FlightNavBar
           flightDate={"Martes 30 nov 2021"}
           flightLocation={"Cd. Mex (AICM) a Culiacan"}
@@ -24,13 +31,11 @@ const Flights = () => {
         />
         <FlightTimeBags />
       </section>
-      <aside className="main__aside">
+      <aside className="mainn__aside">
         <div>
-          {/* <h4>Tu reservacion</h4> */}
           <FlightReservation title={"Tu Reserva"} passangers={["1 Adulto"]} />
         </div>
         <div>
-          {/* <h4>Costo de vuelo</h4> */}
           <FlightPrice
             prices={["$1000 MX", "$471 MXN", "$75"]}
             label={["Tarifa Base", "Tarifa base con descuento", "IVA Tarifa"]}
@@ -38,7 +43,11 @@ const Flights = () => {
             title={"Costo de Vuelo"}
           />
         </div>
-        <ButtonData label="Seleccionar Asiento" customStyle={true} />
+        <ButtonData
+          label="Seleccionar Asiento"
+          customStyle={true}
+          onClick={handleClick}
+        />
       </aside>
     </div>
   );
