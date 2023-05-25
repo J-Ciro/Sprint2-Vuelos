@@ -48,7 +48,7 @@ const SearchTickets= ({formValue, setFormValues}) => {
                 'error'
             )
         }
-        if(!values.origen || !values.destiny || !values.dateLeave) {
+        if(!values.origen || !values.destiny || !values.dateLeaved) {
             alertError('Valide su origen, destino o que sus fechas tengan un valor');
             return false
         }
@@ -77,7 +77,7 @@ const SearchTickets= ({formValue, setFormValues}) => {
     const sendForm = ()=>{
         const isValidForm= validateForm(formValue);
         if(isValidForm){
-            navigate("/detail")
+            navigate("/flights")
         }
     }
 
@@ -158,7 +158,7 @@ const SearchTickets= ({formValue, setFormValues}) => {
                     <div className="row">
                         <div className="col-md-6">
                             <div className="form-floating mb-3">
-                                <input type="date" className="form-control" min={new Date().toISOString().split("T")[0]} id="floatingInputLeave" name="dateLeave" onChange={e => onChangeValue(e)}/>
+                                <input type="date" className="form-control" min={new Date().toISOString().split("T")[0]} id="floatingInputLeave" name="dateLeaved" onChange={e => onChangeValue(e)}/>
                                 <label htmlFor="floatingInputLeave">Salida</label>
                             </div>
                         </div>

@@ -5,21 +5,27 @@ import FlightReservation from "./FlightReservation/FlightReservation";
 import FlightTimeBags from "./FlightTimeBags/FlightTimeBags";
 import FlightPrice from "./FlightPrice/FlightPrice";
 import ButtonData from "../ButtonData/ButtonData";
+import { DateTime } from "luxon";
+import { useNavigate } from "react-router-dom";
 import "../ButtonData/ButtonData.scss";
 
-const Flights = () => {
+const Flights = ({formValue}) => {
+  const navigate = useNavigate();
+  const goPage=()=>{
+      navigate('seats')
+  } 
   return (
     <div className="main">
       <section className="main__content">
         <FlightNavBar
-          flightDate={"Martes 30 nov 2021"}
-          flightLocation={"Cd. Mex (AICM) a Culiacan"}
+          flightDate={DateTime.fromISO(formValue.dateLeaved).toLocaleString({weekday:'long', month:'short', day: 'numeric', year:'numeric' })}
+          flightLocation={`${formValue.origen} (${formValue.codeOrigen}) a ${formValue.destiny}  (${formValue.codeDestiny})`}
           flight={"Vuelo de Salida"}
         />
         <FlightTimeBags />
         <FlightNavBar
-          flightDate={"Martes 30 diciembre 2021"}
-          flightLocation={"Culiacan a Cd. Mex (AICM)"}
+          flightDate={DateTime.fromISO(formValue.dateArrive).toLocaleString({weekday:'long', month:'short', day: 'numeric', year:'numeric' })}
+          flightLocation={`${formValue.destiny} (${formValue.codeDestiny}) a ${formValue.origen} (${formValue.codeOrigen})`}
           flight={"Vuelo de Llegada"}
         />
         <FlightTimeBags />
@@ -38,7 +44,8 @@ const Flights = () => {
             title={"Costo de Vuelo"}
           />
         </div>
-        <ButtonData label="Seleccionar Asiento" customStyle={true} />
+        <ButtonData label="Seleccionar Asiento" customStyle={true} goPage={goPage} />
+        
       </aside>
     </div>
   );

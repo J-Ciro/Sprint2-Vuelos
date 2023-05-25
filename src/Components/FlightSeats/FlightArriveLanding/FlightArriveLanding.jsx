@@ -1,14 +1,17 @@
 import React from "react";
+import { DateTime } from "luxon";
 import FlightNavBar from "../../Flights/FlightNavbar/FlightNavBar";
 import SelectSeats from "../SelectSeats/SelectSeats";
 import "./FlightArrive.scss";
-const FlightArriveLanding = () => {
+
+
+const FlightArriveLanding = ({formValue}) => {
   return (
     <>
       <div className="flight__container">
         <FlightNavBar
-          flightDate={"Martes 30 nov 2021"}
-          flightLocation={"Cd. Mex (AICM) a Culiacan"}
+          flightDate={DateTime.fromISO(formValue.dateLeaved).toLocaleString({weekday:'long', month:'short', day: 'numeric', year:'numeric' })}
+          flightLocation={`${formValue.origen} (${formValue.codeOrigen}) a ${formValue.destiny}  (${formValue.codeDestiny})`}
           flight={"Vuelo de Salida"}
         />
         <h5 className="main__title">Selecciona tus asientos</h5>
@@ -20,8 +23,8 @@ const FlightArriveLanding = () => {
       </div>
       <div className="flight__container">
         <FlightNavBar
-          flightDate={"Martes 30 nov 2021"}
-          flightLocation={"Cd. Mex (AICM) a Culiacan"}
+          flightDate={DateTime.fromISO(formValue.dateArrive).toLocaleString({weekday:'long', month:'short', day: 'numeric', year:'numeric' })}
+          flightLocation={`${formValue.destiny} (${formValue.codeDestiny}) a ${formValue.origen} (${formValue.codeOrigen})`}
           flight={"Vuelo de Regreso"}
         />
         <h5 className="main__title">Selecciona tus asientos</h5>
