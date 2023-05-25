@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Layout from "./components/Layout/Layout";
+import { Layout } from "./components/Layout/Layout";
 import FeatureHomePage from "./components/feature-homepage/Index";
 import Flights from "./components/Flights/Flights";
 import FlightSeats from "./components/FlightSeats/FlightSeats";
