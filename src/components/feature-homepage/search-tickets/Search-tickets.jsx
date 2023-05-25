@@ -78,7 +78,8 @@ const SearchTickets = ({ formValue, setFormValues }) => {
   const sendForm = () => {
     const isValidForm = validateForm(formValue);
     if (isValidForm) {
-      navigate("/detail");
+      sessionStorage.setItem("user",)
+      navigate("/flights");
     }
   };
 

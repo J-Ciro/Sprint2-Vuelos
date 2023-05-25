@@ -4,6 +4,12 @@
   padding: 10px;
   border-radius: 0px 0px 5px 5px;
   margin-bottom: 20px;
+  @media screen and (max-width: 769px) {
+    width: 50vw;
+  }
+  @media screen and (max-width: 426px) {
+    width: 81vw;
+  }
   &__quantity {
     font-size: 1rem;
   }
@@ -59,4 +65,10 @@
   padding: 10px;
   margin: 0px;
   font-size: 1rem;
+  @media screen and (max-width: 769px) {
+    width: 50vw;
+  }
+  @media screen and (max-width: 426px) {
+    width: 81vw;
+  }
 }

@@ -7,6 +7,12 @@
   padding: 10px;
   border-radius: 0px 0px 5px 5px;
   justify-content: space-between;
+  @media screen and (max-width: 769px) {
+    width: 50vw;
+  }
+  @media screen and (max-width: 426px) {
+    width: 81vw;
+  }
   &__label,
   &__cost {
     ul {
@@ -33,9 +39,15 @@
     font-family: "Wix Madefor Text", sans-serif;
     background-color: #f1eff2;
     width: 20vw;
-    height: 100%;
+    // height: 100%;
     padding: 10px;
     margin: 0px;
     font-size: 1rem;
+    @media screen and (max-width: 769px) {
+      width: 50vw;
+    }
+    @media screen and (max-width: 426px) {
+      width: 81vw;
+    }
   }
 }

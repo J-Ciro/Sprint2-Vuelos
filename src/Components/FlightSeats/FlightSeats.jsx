@@ -13,7 +13,7 @@ const FlightSeats = () => {
       <section className="mainn__content">
         <FlightArriveLanding />
       </section>
-      <section>
+      <section className="mainn__contentData">
         <div className="mainn__flightReservation">
           <FlightReservation
             title={"Tu Reservacion"}

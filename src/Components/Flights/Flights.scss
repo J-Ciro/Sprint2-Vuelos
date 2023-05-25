@@ -11,6 +11,10 @@
   }
   &__content {
     width: 70vw;
+    @media screen and (max-width: 426px) {
+      display: block;
+      width: 81vw;
+    }
   }
   &__aside {
     // width: 30vw;
