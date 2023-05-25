@@ -1,9 +1,7 @@
-import React from 'react'
-
+import React from "react";
+import "./NotFound.scss";
 const NotFound = () => {
-  return (
-    <div>Error 404</div>
-  )
-}
+  return <div className="error">Error 404</div>;
+};
 
-export default NotFound
+export default NotFound;

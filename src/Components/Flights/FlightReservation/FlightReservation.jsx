@@ -12,7 +12,7 @@ const FlightReservation = ({ title, passangers = [] }) => {
           <ul>
             {passangers.map((passanger, index) => (
               <li key={index}>
-                <h5>{passanger}</h5>
+                <h5 className="reservation__quantity">{passanger}</h5>
               </li>
             ))}
           </ul>

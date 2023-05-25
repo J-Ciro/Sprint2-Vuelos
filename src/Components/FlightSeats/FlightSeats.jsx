@@ -13,18 +13,24 @@ const FlightSeats = ({formValue}) => {
       navigate('/payment')
   } 
   return (
+<<<<<<< HEAD
     <div className="main">
       <section className="main__content">
         <FlightArriveLanding formValue={formValue}/>
+=======
+    <div className="mainn">
+      <section className="mainn__content">
+        <FlightArriveLanding />
+>>>>>>> 7a3babe589ae8aafcd84bd5e236010a511f9d543
       </section>
-      <section>
-        <div className="main__flightReservation">
+      <section className="mainn__contentData">
+        <div className="mainn__flightReservation">
           <FlightReservation
             title={"Tu Reservacion"}
             passangers={["1 Adulto"]}
           />
         </div>
-        <div className="main__flightCost">
+        <div className="mainn__flightCost">
           <FlightPrice
             prices={["$1000 MX", "$471 MXN", "$75"]}
             label={["Tarifa Base", "Tarifa base con descuento", "IVA Tarifa"]}

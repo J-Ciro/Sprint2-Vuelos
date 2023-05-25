@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import FlightNavBar from "./FlightNavbar/FlightNavBar";
 import "./Flights.scss";
 import FlightReservation from "./FlightReservation/FlightReservation";
@@ -9,14 +10,24 @@ import { DateTime } from "luxon";
 import { useNavigate } from "react-router-dom";
 import "../ButtonData/ButtonData.scss";
 
+<<<<<<< HEAD
 const Flights = ({formValue}) => {
   const navigate = useNavigate();
   const goPage=()=>{
       navigate('seats')
   } 
+=======
+const Flights = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/flights/seats");
+  };
+
+>>>>>>> 7a3babe589ae8aafcd84bd5e236010a511f9d543
   return (
-    <div className="main">
-      <section className="main__content">
+    <div className="mainn">
+      <section className="mainn__content">
         <FlightNavBar
           flightDate={DateTime.fromISO(formValue.dateLeaved).toLocaleString({weekday:'long', month:'short', day: 'numeric', year:'numeric' })}
           flightLocation={`${formValue.origen} (${formValue.codeOrigen}) a ${formValue.destiny}  (${formValue.codeDestiny})`}
@@ -30,13 +41,11 @@ const Flights = ({formValue}) => {
         />
         <FlightTimeBags />
       </section>
-      <aside className="main__aside">
+      <aside className="mainn__aside">
         <div>
-          {/* <h4>Tu reservacion</h4> */}
           <FlightReservation title={"Tu Reserva"} passangers={["1 Adulto"]} />
         </div>
         <div>
-          {/* <h4>Costo de vuelo</h4> */}
           <FlightPrice
             prices={["$1000 MX", "$471 MXN", "$75"]}
             label={["Tarifa Base", "Tarifa base con descuento", "IVA Tarifa"]}
@@ -44,8 +53,16 @@ const Flights = ({formValue}) => {
             title={"Costo de Vuelo"}
           />
         </div>
+<<<<<<< HEAD
         <ButtonData label="Seleccionar Asiento" customStyle={true} goPage={goPage} />
         
+=======
+        <ButtonData
+          label="Seleccionar Asiento"
+          customStyle={true}
+          onClick={handleClick}
+        />
+>>>>>>> 7a3babe589ae8aafcd84bd5e236010a511f9d543
       </aside>
     </div>
   );
