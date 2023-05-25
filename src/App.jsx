@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Layout } from "./Components/Layout/Layout.jsx";
-import FeatureHomePage from "./Components/feature-homepage/Index.jsx";
+import FeatureHomePage from "./Components/FeatureHomePage/Index"
 import Flights from "./Components/Flights/Flights";
 import FlightSeats from "./Components/FlightSeats/FlightSeats";
 import NotFound from "./Components/NotFound/NotFound";
