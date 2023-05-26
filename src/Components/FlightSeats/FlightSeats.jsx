@@ -7,21 +7,16 @@ import FlightPrice from "../Flights/FlightPrice/FlightPrice";
 import ButtonData from "../ButtonData/ButtonData";
 import "../ButtonData/ButtonData.scss";
 
-const FlightSeats = ({formValue}) => {
+
+const FlightSeats = () => {
   const navigate = useNavigate();
   const goPage=()=>{
       navigate('/payment')
   } 
   return (
-<<<<<<< HEAD
     <div className="main">
       <section className="main__content">
-        <FlightArriveLanding formValue={formValue}/>
-=======
-    <div className="mainn">
-      <section className="mainn__content">
         <FlightArriveLanding />
->>>>>>> 7a3babe589ae8aafcd84bd5e236010a511f9d543
       </section>
       <section className="mainn__contentData">
         <div className="mainn__flightReservation">

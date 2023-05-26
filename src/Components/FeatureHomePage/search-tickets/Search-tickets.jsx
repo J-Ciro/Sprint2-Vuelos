@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import { DatalistInput } from "react-datalist-input";
@@ -10,8 +10,10 @@ import Plane from "../../../assets/icons/plane.svg";
 import axios from "axios";
 import "react-datalist-input/dist/styles.css";
 import "./search-tickets.scss";
+import {contextFligths} from '../../../Routes/AppRouter'
 
-const SearchTickets = ({ formValue, setFormValues }) => {
+const SearchTickets = () => {
+  const {formValue, setFormValues} = useContext(contextFligths)
   const navigate = useNavigate();
   const [showModalOrigin, setShowModaLOrigin] = useState(false);
   const [showModalDestiny, setShowModalDestiny] = useState(false);
@@ -26,7 +28,7 @@ const SearchTickets = ({ formValue, setFormValues }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/places")
+      .get("https://vuelos-backend-production.up.railway.app/places")
       .then(function (response) {
         setPlaces(response.data);
       })
@@ -78,7 +80,7 @@ const SearchTickets = ({ formValue, setFormValues }) => {
   const sendForm = () => {
     const isValidForm = validateForm(formValue);
     if (isValidForm) {
-      sessionStorage.setItem("user",)
+      sessionStorage.setItem("user",JSON.stringify(formValue))
       navigate("/flights");
     }
   };

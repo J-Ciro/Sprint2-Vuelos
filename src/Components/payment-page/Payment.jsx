@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useContext } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
@@ -7,11 +7,13 @@ import Swal from 'sweetalert2';
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import './payment-page.scss'
+import {contextFligths} from '../../Routes/AppRouter'
 
-const baseFlightsURL= 'http://localhost:3000/flights' 
-const basePassengersURL= 'http://localhost:3000/clients' 
+const baseFlightsURL= 'https://vuelos-backend-production.up.railway.app/flights' 
+const basePassengersURL= 'https://vuelos-backend-production.up.railway.app/clients' 
 
-const PaymentPage = ({formValue,total,fligthValue,seatSelected, setDateDefaul, cantPassengers}) => {
+const PaymentPage = () => {
+    const {formValue,total,fligthValue,seatSelected, setDateDefaul, cantPassengers} = useContext(contextFligths)
     const navigate = useNavigate();
     const [formValues,setFormValues] = useState({})
     const [validated, setValidated] = useState(false);

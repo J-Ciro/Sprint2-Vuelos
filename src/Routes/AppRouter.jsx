@@ -1,22 +1,22 @@
-<<<<<<< HEAD
-import React, {useState} from "react";
+import React, {useState , createContext} from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Flights from "../components/Flights/Flights";
-import Layout from "../components/Layout/Layout";
+import {Layout} from "../components/Layout/Layout";
 import FlightSeats from "../components/FlightSeats/FlightSeats";
 import NotFound from "../components/NotFound/NotFound";
-import FeatureHomePage from "../components/feature-homepage/Index";
+import FeatureHomePage from "../components/FeatureHomePage/Index";
 import PaymentPage from "../components/payment-page/Payment";
 
+export const contextFligths= createContext();
 
 export const AppRouter = () => {
   const [formValue, setFormValues] = useState({
     travelRounded: null,
-    origin: null,
+    origen: null,
     destiny: null,
     codeOrigen:null,
     dateArrive: null,
-    dateLeaved: null,
+    dateLeave: null,
     codeDestiny:null,
     passengers: { Adult: 0, child: 0, baby: 0 },
     code: "",
@@ -47,48 +47,32 @@ export const AppRouter = () => {
 
   return (
     <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={ <FeatureHomePage
-              formValue={formValue}
-              setFormValues={setFormValues}
-            />} />
-            <Route path="flights/*" element={<Flights  formValue={formValue}
-            />} />
-            <Route path="flights/seats" element={<FlightSeats formValue={formValue}/>} />
-            <Route path="payment"  element={<PaymentPage fligthValue={fligthValue}  total={costOptionalServices.total+costValue.total} formValue={formValue} seatSelected={seatSelected}  cantPassengers={cantPassengers}/>} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+        <BrowserRouter>
+          <contextFligths.Provider value={{
+              formValue, 
+              setFormValues,
+              seatSelected,
+              setSeatSelected,
+              costValue, 
+              setCostValue,
+              fligthValue,
+              setFligthValue,
+              costOptionalServices,
+              setCostOptionalServices
+            }}
+          >
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={ <FeatureHomePage/>} />
+                <Route path="flights/*" element={<Flights />} />
+                <Route path="flights/seats" element={<FlightSeats />} />
+                <Route path="payment"  element={<PaymentPage />} />
+              </Route>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </contextFligths.Provider>
+        </BrowserRouter>
     </div>
   );
 };
-=======
-// import React from "react";
-// import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import Flights from "../Components/Flights/Flights";
-// import Layout from "../Components/Layout/Layout";
-// import Home from "../Components/Home/Home";
-// import FlightSeats from "../Components/FlightSeats/FlightSeats";
-// import NotFound from "../Components/NotFound/NotFound";
-// import FeatureHomePage from "../Components/feature-homepage/Index";
-// import App from "../App";
-// export const AppRouter = () => {
-//   return (
-//     <div>
-//       <BrowserRouter>
-//         <Routes>
-//           <Route path="/" element={<Layout />}>
-//             <Route index element={<FeatureHomePage />} />
-//             <Route path="flights/*" element={<Flights />} />
-//             <Route path="flights/seats" element={<FlightSeats />} />
-//           </Route>
-//           <Route path="*" element={<NotFound />} />
-//         </Routes>
-//       </BrowserRouter>
-//     </div>
-//   );
-// };
->>>>>>> 7a3babe589ae8aafcd84bd5e236010a511f9d543
+

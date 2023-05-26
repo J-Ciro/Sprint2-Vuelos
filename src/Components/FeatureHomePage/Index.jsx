@@ -8,7 +8,7 @@ import "./home.scss";
 const FeatureHomePage = ({ formValue, setFormValues }) => {
   return (
     <div className="principal">
-      <SearchTickets formValue={formValue} setFormValues={setFormValues} />
+      <SearchTickets />
       <Payment />
       <ServicesAvailables />
     </div>

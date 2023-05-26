@@ -1,16 +1,17 @@
-import React from "react";
+import React, {useContext} from "react";
 import { DateTime } from "luxon";
 import FlightNavBar from "../../Flights/FlightNavbar/FlightNavBar";
 import SelectSeats from "../SelectSeats/SelectSeats";
 import "./FlightArrive.scss";
+import {contextFligths} from '../../../Routes/AppRouter'
 
-
-const FlightArriveLanding = ({formValue}) => {
+const FlightArriveLanding = () => {
+  const {formValue} = useContext(contextFligths)
   return (
     <>
       <div className="flight__container">
         <FlightNavBar
-          flightDate={DateTime.fromISO(formValue.dateLeaved).toLocaleString({weekday:'long', month:'short', day: 'numeric', year:'numeric' })}
+          flightDate={DateTime.fromISO(formValue.dateLeave).toLocaleString({weekday:'long', month:'short', day: 'numeric', year:'numeric' })}
           flightLocation={`${formValue.origen} (${formValue.codeOrigen}) a ${formValue.destiny}  (${formValue.codeDestiny})`}
           flight={"Vuelo de Salida"}
         />
