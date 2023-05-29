@@ -1,5 +1,6 @@
-import React, {useState , createContext, useEffect} from "react";
+import React, {useState , createContext} from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import Flights from "../Components/Flights/Flights";
 import {Layout} from "../Components/Layout/Layout";
 import FlightSeats from "../Components/FlightSeats/FlightSeats";
@@ -9,7 +10,6 @@ import PaymentPage from "../Components/payment-page/Payment";
 
 export const contextFligths= createContext();
 export const AppRouter = () => {
-  
   const [formValue, setFormValues] = useState({
     travelRounded: null,
     origen: null,
@@ -18,13 +18,11 @@ export const AppRouter = () => {
     dateArrive: null,
     dateLeave: null,
     codeDestiny:null,
-    passengers: { adult: 0, child: 0, baby: 0 },
+    passengers: { Adult: 0, child: 0, baby: 0 },
     code: "",
-    origenPrice:"",
-    destinyPrice:""
   });
 
-  const [seatSelected,setSeatSelected] = useState({seatOrigen:[],seatDestiny:[]});
+  const [seatSelected,setSeatSelected] =useState({seatOrigen:[],seatDestiny:[]});
   const [costValue, setCostValue]= useState({
       tarifaBase:null,
       tarifaBaseDescuento:null,
@@ -42,8 +40,10 @@ export const AppRouter = () => {
     tua: 1191,
     total:0
   })
-  
-  const cantPassengers = Object.values(formValue.passengers).reduce((a, b) => a + b, 0);
+
+  const cantPassengers=Object.values(formValue.passengers).reduce((a, b) => a + b, 0);
+
+
 
   return (
     <div>
@@ -58,9 +58,7 @@ export const AppRouter = () => {
               fligthValue,
               setFligthValue,
               costOptionalServices,
-              setCostOptionalServices,
-              
-
+              setCostOptionalServices
             }}
           >
             <Routes>
@@ -68,7 +66,7 @@ export const AppRouter = () => {
                 <Route index element={ <FeatureHomePage/>} />
                 <Route path="flights/*" element={<Flights />} />
                 <Route path="flights/seats" element={<FlightSeats />} />
-                <Route path="payment"  element={<PaymentPage />} />
+                <Route path="payment"  element={<Payment />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
