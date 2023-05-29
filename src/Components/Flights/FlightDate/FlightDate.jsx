@@ -6,11 +6,10 @@ const FlightDate = ({
   timeArrive,
   timeLading,
   reservationDate,
-  flightType
 }) => {
   return (
     <div className="reservation__leave">
-      <span>{flightType}</span>
+      <span>Vuelo de salida</span>
       <div className="reservation__content">
         <div className="reservation__countryTime">
           <h2>{countryArrive}</h2>
