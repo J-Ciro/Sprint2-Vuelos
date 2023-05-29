@@ -1,17 +1,15 @@
-import React, {useState , createContext, useEffect} from "react";
+import React, {useState , createContext} from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Flights from "../componets/Flights/Flights";
-import { Layout } from "../componets/Layout/Layout";
-import FeatureHomePage from "../componets/FeatureHomePage/Index";
-import FlightSeats from "../componets/FlightSeats/FlightSeats";
-import PaymentPage from "../componets/payment-page/Payment";
-import NotFound from "../componets/NotFound/NotFound";
-
+import Flights from "../components/Flights/Flights";
+import {Layout} from "../components/Layout/Layout";
+import FlightSeats from "../components/FlightSeats/FlightSeats";
+import NotFound from "../components/NotFound/NotFound";
+import FeatureHomePage from "../components/FeatureHomePage/Index";
+import Payment from "../components/FeatureHomePage/payment/Payment";
 
 export const contextFligths= createContext();
 
 export const AppRouter = () => {
-  
   const [formValue, setFormValues] = useState({
     travelRounded: null,
     origen: null,
@@ -20,13 +18,11 @@ export const AppRouter = () => {
     dateArrive: null,
     dateLeave: null,
     codeDestiny:null,
-    passengers: { adult: 0, child: 0, baby: 0 },
+    passengers: { Adult: 0, child: 0, baby: 0 },
     code: "",
-    origenPrice:"",
-    destinyPrice:""
   });
 
-  const [seatSelected,setSeatSelected] = useState({seatOrigen:[],seatDestiny:[]});
+  const [seatSelected,setSeatSelected] =useState({seatOrigen:[],seatDestiny:[]});
   const [costValue, setCostValue]= useState({
       tarifaBase:null,
       tarifaBaseDescuento:null,
@@ -44,8 +40,10 @@ export const AppRouter = () => {
     tua: 1191,
     total:0
   })
-  
-  const cantPassengers = Object.values(formValue.passengers).reduce((a, b) => a + b, 0);
+
+  const cantPassengers=Object.values(formValue.passengers).reduce((a, b) => a + b, 0);
+
+
 
   return (
     <div>
@@ -60,9 +58,7 @@ export const AppRouter = () => {
               fligthValue,
               setFligthValue,
               costOptionalServices,
-              setCostOptionalServices,
-              
-
+              setCostOptionalServices
             }}
           >
             <Routes>
@@ -70,7 +66,7 @@ export const AppRouter = () => {
                 <Route index element={ <FeatureHomePage/>} />
                 <Route path="flights/*" element={<Flights />} />
                 <Route path="flights/seats" element={<FlightSeats />} />
-                <Route path="payment"  element={<PaymentPage />} />
+                <Route path="payment"  element={<Payment />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>

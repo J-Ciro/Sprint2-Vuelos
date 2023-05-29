@@ -1,0 +1,27 @@
+.main__seat {
+  background-color: gray;
+
+  /* background-color: white; */
+  padding: 1em 1.3em;
+
+  font-size: 1rem;
+  border-radius: 5px;
+  width: 10px;
+  height: 20px;
+  height: 56px;
+  width: 53px;
+  @media screen and (max-width:426px) {
+    width: 43px;
+    height: 46px;
+  }
+}
+
+.active {
+  background-color: #a70b6c;
+  color: white;
+}
+
+.selected {
+  background-color: white;
+  border: 2px solid #a70b6c;
+}
