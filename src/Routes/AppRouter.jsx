@@ -66,7 +66,7 @@ export const AppRouter = () => {
                 <Route index element={ <FeatureHomePage/>} />
                 <Route path="flights/*" element={<Flights />} />
                 <Route path="flights/seats" element={<FlightSeats />} />
-                <Route path="payment"  element={<Payment />} />
+                <Route path="payment"  element={<PaymentPage />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
