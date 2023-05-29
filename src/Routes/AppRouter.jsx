@@ -1,11 +1,12 @@
 import React, {useState , createContext, useEffect} from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {Flights} from "../components/Flights/Flights";
-import {Layout} from "../components/Layout/Layout";
-import FlightSeats from "../components/FlightSeats/FlightSeats";
-import NotFound from "../components/NotFound/NotFound";
-import FeatureHomePage from "../components/FeatureHomePage/Index";
-import PaymentPage from "../components/payment-page/Payment";
+import Flights from "../componets/Flights/Flights";
+import { Layout } from "../componets/Layout/Layout";
+import FeatureHomePage from "../componets/FeatureHomePage/Index";
+import FlightSeats from "../componets/FlightSeats/FlightSeats";
+import PaymentPage from "../componets/payment-page/Payment";
+import NotFound from "../componets/NotFound/NotFound";
+
 
 export const contextFligths= createContext();
 
