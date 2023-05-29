@@ -5,7 +5,7 @@ import {Layout} from "../components/Layout/Layout";
 import FlightSeats from "../components/FlightSeats/FlightSeats";
 import NotFound from "../components/NotFound/NotFound";
 import FeatureHomePage from "../components/FeatureHomePage/Index";
-import PaymentPage from "../components/payment-page/Payment";
+import Payment from "../components/FeatureHomePage/payment/Payment";
 
 export const contextFligths= createContext();
 
@@ -66,7 +66,7 @@ export const AppRouter = () => {
                 <Route index element={ <FeatureHomePage/>} />
                 <Route path="flights/*" element={<Flights />} />
                 <Route path="flights/seats" element={<FlightSeats />} />
-                <Route path="payment"  element={<PaymentPage />} />
+                <Route path="payment"  element={<Payment />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
