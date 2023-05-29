@@ -20,7 +20,6 @@ const SearchTickets = () => {
   const [showModalPassengers, setShowPassengers] = useState(false);
   const [places, setPlaces] = useState([]);
   const [origin, setOrigin] = useState();
-  const [destination, setDestination] = useState();
   const codeOfert = "OFERT123";
 
   const handleModalOrigin = () => setShowModaLOrigin(!showModalOrigin);
@@ -36,14 +35,6 @@ const SearchTickets = () => {
       .catch(function (error) {
         console.log(error);
       });
-
-      const userSessionData = sessionStorage.getItem("user");
-      if (userSessionData) {
-        const userData = JSON.parse(userSessionData);
-        setFormValues(userData);
-        console.log(userData)
-      }
-      
   }, []);
 
   const onChangeValue = (e) => {
@@ -51,17 +42,14 @@ const SearchTickets = () => {
       ...formValue,
       [e.target.name]: e.target.value,
     });
-    sessionStorage.setItem("user",JSON.stringify(formValue))
-
   };
   const validateForm = (values) => {
     const alertError = (text) => {
       Swal.fire("", text, "error");
     };
-    if (!values.origen || !values.destiny || !values.dateLeave || values.origen == values.destiny) {
+    if (!values.origen || !values.destiny || !values.dateLeave) {
       alertError("Valide su origen, destino o que sus fechas tengan un valor");
       return false;
-     
     }
 
     if (values.travelRounded === null) {
@@ -74,7 +62,7 @@ const SearchTickets = () => {
     }
 
     if (
-      values.passengers.adult === 0 &&
+      values.passengers.Adult === 0 &&
       values.passengers.child === 0 &&
       values.passengers.baby === 0
     ) {
@@ -85,7 +73,6 @@ const SearchTickets = () => {
       alertError("Ingrese un código válido");
       return false;
     }
-
 
     return true;
   };
@@ -114,7 +101,6 @@ const SearchTickets = () => {
                 ...formValue,
                 origen: item.city,
                 codeOrigen: item.code,
-                origenPrice: item.price
               });
               handleModalOrigin();
             }}
@@ -153,7 +139,6 @@ const SearchTickets = () => {
                 ...formValue,
                 destiny: item.city,
                 codeDestiny: item.code,
-                destinyPrice: item.price
               });
               handleModalDestiny();
             }}
@@ -201,7 +186,6 @@ const SearchTickets = () => {
             onChange={(e) => onChangeValue(e)}
           >
             <input
-             onChange={(e) => onChangeValue(e)}
               type="radio"
               className="btn-check"
               name="travelRounded"
@@ -226,7 +210,6 @@ const SearchTickets = () => {
           <div className="row">
             <div className="col-md-6">
               <button
-               onChange={(e) => onChangeValue(e)}
                 className="city"
                 type="button"
                 onClick={() => handleModalOrigin()}
@@ -236,7 +219,7 @@ const SearchTickets = () => {
               </button>
             </div>
             <div className="col-md-6">
-              <button className="city" onClick={() => handleModalDestiny()}  onChange={(e) => onChangeValue(e)}>
+              <button className="city" onClick={() => handleModalDestiny()}>
                 {formValue.destiny ? formValue.destiny : "---"}
                 <span>Seleccione un destino</span>
               </button>

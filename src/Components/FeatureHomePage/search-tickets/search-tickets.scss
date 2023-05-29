@@ -1,0 +1,132 @@
+.search-ticket{
+    position: relative;
+    &-form{
+        position: absolute;
+        top: 10%;
+        width: 50%;
+        padding: 0 20px;
+        background-color: #EDEDED;
+        border-radius: 12px;
+        box-shadow: 9px 13px 13px -4px rgba(204, 204, 204, 0.7); 
+        h3{
+            padding: 20px 0;
+            width: 70%;
+        }
+        .btn-group-sm{
+            margin: 20px 0;
+            border: 1px solid #cccccc;
+            padding: 3px;
+            border-radius: 6px;
+            width: 37%;
+            display: flex;
+            justify-content: center;
+        }
+        .btn-check:checked+.btn{
+            background-color: #9e2479;
+            color: white
+        }
+        .row{
+            margin-bottom: 20px;
+            button.city{
+                display:flex;
+                flex-direction: column;
+                border: 1px solid white;
+                align-items: center;
+                height: 70px;
+                background-color: white;
+                border-radius: 6px;
+                padding: 12px;
+                font-weight: 700;
+                width: 100%;
+                span{
+                    font-size: 12px;
+                    display: flex;
+                    height: 100%;
+                    font-weight: 400;
+                    align-items: flex-end;
+                    color: #a8a8a8;
+                }
+            }
+            .select{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                border: 1px solid #cccccc;
+                background-color: white;
+                border-radius: 6px;
+                padding: 6px;
+                font-size: 14px;
+                width: 100%;
+                color: #a8a8a8;
+                span{
+                    color: black
+                }
+                .icon{
+                    position: absolute;
+                    right: 10px;
+                    top: 25%;
+                }
+            }
+        }
+        .searchFly{
+            outline: none;
+            border: 0;
+            border-radius: 20px;
+            background-color: #9e2479;
+            color: white;
+            display: flex;
+            justify-content: center;
+            height: 45px;
+            width: 100%;
+            margin-bottom: 20px;
+            align-items: center;
+            gap: 15px;
+        }
+    }
+    figure{
+        display: flex;
+        justify-content: flex-end;
+        img{
+            border-radius: 12px;
+        }
+    }
+}
+
+.places{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 850px) {
+    .search-ticket{
+        background-color: #a8a8a8;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .row{
+            button.city{
+                margin-bottom: 10px;
+            }
+            .form-floating{
+                margin-top: 10px;
+            }
+        }
+        &-form{
+            width: unset;
+        }
+        figure{
+            justify-content: center;
+            margin: 0 15px;
+        }
+    }   
+}
+@media (max-width: 460px){
+    .search-ticket{
+        &-form{
+            .btn-group-sm{
+                width: unset;
+            }
+        }
+    }
+}
