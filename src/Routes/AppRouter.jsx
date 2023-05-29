@@ -1,6 +1,6 @@
 import React, {useState , createContext, useEffect} from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Flights from "../components/Flights/Flights";
+import {Flights} from "../components/Flights/Flights";
 import {Layout} from "../components/Layout/Layout";
 import FlightSeats from "../components/FlightSeats/FlightSeats";
 import NotFound from "../components/NotFound/NotFound";
