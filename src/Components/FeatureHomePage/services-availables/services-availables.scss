@@ -1,0 +1,41 @@
+.title-services{
+    margin-top: 40px;
+}
+.services-availables{
+    margin: 25px 0 80px 0;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 30px;
+    justify-content: center;
+    .card{
+        flex-basis: 17%;
+        flex-grow: 1;
+        min-width: 200px;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 9px 13px 13px -4px rgba(204, 204, 204, 0.7);
+        border: 1px solid #cccccc;
+        align-items: center;
+        figure{
+            background-color: #9e2479;
+            display: flex;
+            justify-content: center;
+            width: 80px;
+            border-radius: 50%;
+            height: 80px;
+            align-items: center;
+            img{
+                max-height: 60px;
+            }
+        }
+        span{
+            text-align: center;
+            font-weight: bold;
+            padding-top: 20px;
+        }
+        p{
+            padding-top: 20px;
+            text-align: center;
+        }
+    }
+}
