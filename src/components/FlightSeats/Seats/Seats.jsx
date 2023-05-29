@@ -4,7 +4,6 @@ import './Seats.scss'
 const Seats = () => {
   return (
     <>
-     <span className='main__seat active'></span>
      <span className='main__seat'></span>
      <span className='main__seat'></span>
      <span className='main__seat'></span>
@@ -18,7 +17,8 @@ const Seats = () => {
      <span className='main__seat'></span>
      <span className='main__seat'></span>
      <span className='main__seat'></span>
-     <span className='main__seat selected'></span>
+     <span className='main__seat'></span>
+     <span className='main__seat'></span>
 
     </>
      
