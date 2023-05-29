@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
-    width: 19%;
+    width: 20%;
     flex-wrap: wrap;
     margin: 0px 20px;
     @media screen and (max-width: 769px) {
@@ -140,7 +140,7 @@
   }
   &__seatsStandar {
     display: flex;
-    width: 19%;
+    width: 20%;
     gap: 10px;
     justify-content: center;
     flex-wrap: wrap;

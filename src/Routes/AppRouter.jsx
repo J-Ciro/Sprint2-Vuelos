@@ -1,14 +1,14 @@
 import React, {useState , createContext} from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Flights from "../components/Flights/Flights";
-import {Layout} from "../components/Layout/Layout";
-import FlightSeats from "../components/FlightSeats/FlightSeats";
-import NotFound from "../components/NotFound/NotFound";
-import FeatureHomePage from "../components/FeatureHomePage/Index";
-import Payment from "../components/FeatureHomePage/payment/Payment";
+
+import Flights from "../Components/Flights/Flights";
+import {Layout} from "../Components/Layout/Layout";
+import FlightSeats from "../Components/FlightSeats/FlightSeats";
+import NotFound from "../Components/NotFound/NotFound";
+import FeatureHomePage from "../Components/FeatureHomePage/Index";
+import PaymentPage from "../Components/payment-page/Payment";
 
 export const contextFligths= createContext();
-
 export const AppRouter = () => {
   const [formValue, setFormValues] = useState({
     travelRounded: null,
