@@ -46,11 +46,6 @@ export const AppRouter = () => {
   
   const cantPassengers = Object.values(formValue.passengers).reduce((a, b) => a + b, 0);
 
-//  export const getParamsFromStorage = () => {
-//     const params = sessionStorage.getItem("flightParams") ? JSON.parse(sessionStorage.getItem("flightParams")) : {};
-//     setFormValues({ ...params });    
-//   }
-
   return (
     <div>
         <BrowserRouter>
