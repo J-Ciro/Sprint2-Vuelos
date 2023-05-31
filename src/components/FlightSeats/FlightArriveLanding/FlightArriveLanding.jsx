@@ -4,8 +4,18 @@ import FlightNavBar from "../../Flights/FlightNavbar/FlightNavBar";
 import SelectSeats from "../SelectSeats/SelectSeats";
 import "./FlightArrive.scss";
 import {contextFligths} from '../../../Routes/AppRouter'
+import axios from "axios";
 
 const getSessionData = (key, defaultValue) => {
+  const stored = sessionStorage.getItem(key);
+  if (!stored) {
+    return defaultValue
+  }
+  return JSON.parse(stored);
+
+}
+
+const getSeatsData = (key, defaultValue) => {
   const stored = sessionStorage.getItem(key);
   if (!stored) {
     return defaultValue
@@ -18,14 +28,36 @@ const getSessionData = (key, defaultValue) => {
 const FlightArriveLanding = () => {
   const {formValue} = useContext(contextFligths)
 
-
+  const [seats, setSeats] = useState([]);
   const [dataArrived, setDataArrived] = useState({});
   
   useEffect(() => {
    const storageData = getSessionData('user', true);
    setDataArrived({...storageData});
-   console.log(dataArrived);
+  //  console.log(dataArrived);
+
+    axios
+      .get("https://vuelos-backend-production.up.railway.app/seats")
+      .then(function (response) {
+        setSeats(response.data);
+        const seatsData = response.data;
+        sessionStorage.setItem("seats", JSON.stringify(seatsData));
+        
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+       const flightSeatsData = sessionStorage.getItem("seats");
+       if (flightSeatsData) {
+         const seatsData = JSON.parse(flightSeatsData);
+         getSeatsData(seatsData);
+        //  console.log(seats.fastExit.row)
+       }
+      
+
+
   }, []);
+
   return (
     <>
       <div className="flight__container">
@@ -36,8 +68,9 @@ const FlightArriveLanding = () => {
         />
         <h5 className="main__title">Selecciona tus asientos</h5>
         <div>
-          <div className="arriveSeats">
-            <SelectSeats />
+          <div className="salidaVuelos">
+          <SelectSeats />
+          
           </div>
         </div>
       </div>
@@ -49,7 +82,7 @@ const FlightArriveLanding = () => {
         />
         <h5 className="main__title">Selecciona tus asientos</h5>
         <div>
-          <div className="arriveSeats">
+          <div className="regresoVuelo">
             <SelectSeats />
           </div>
         </div>

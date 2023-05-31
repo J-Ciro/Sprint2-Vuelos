@@ -2,7 +2,7 @@ import React from "react";
 import Seats from "../Seats/Seats";
 import "./SelectSeats.scss";
 
-const SelectSeats = () => {
+const SelectSeats = ({activar, showOneTest}) => {
   return (
     <>
       <div className="mainn__seats">
@@ -13,7 +13,7 @@ const SelectSeats = () => {
             <span className="mainn__c">C</span>
           </div>
           <div className="mainn__seatsList">
-            <Seats />
+            <Seats maxColumns={3} specialColumns={0} showSeatsRange="A-C" prueba={"salida"} />
           </div>
         </div>
         <div className="mainn__fastExit">
@@ -35,13 +35,13 @@ const SelectSeats = () => {
             <span className="mainn__c">F</span>
           </div>
           <div className="mainn__seatsList">
-            <Seats />
+            <Seats maxColumns={3} specialColumns={3} showSeatsRange="D-F" prueba={"regreso"}  />
           </div>
         </div>
       </div>
       <div className="mainn__standarSeats">
         <div className="mainn__seatsStandar">
-          <Seats />
+          <Seats maxColumns={3} specialColumns={0} showSeatsRange="A-C" prueba={"salida"}/>
         </div>
         <div className="mainn__standarTitle">
           <span className="mainn__exitTitle">Salida Estandar</span>
@@ -54,7 +54,7 @@ const SelectSeats = () => {
           </div>
         </div>
         <div className="mainn__seatsStandar">
-          <Seats />
+          <Seats maxColumns={3} specialColumns={3} showSeatsRange="D-F" prueba={"regreso"}/>
         </div>
       </div>
     </>

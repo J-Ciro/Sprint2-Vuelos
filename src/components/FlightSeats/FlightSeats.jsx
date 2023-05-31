@@ -14,35 +14,22 @@ import "../ButtonData/ButtonData.scss";
 //   const value2 = sessionStorage.getItem("vueloRegreso");
 //   const value3 = sessionStorage.getItem("salidaVuelo");
 
-//   // Combina los valores en un nuevo objeto o matriz
-//   const mergedData = {
-//     value1,
-//     value2,
-//     value3,
-//   };
-
-//   // Actualiza el nuevo objeto o matriz en el sessionStorage
-//   sessionStorage.setItem("userData", JSON.stringify(mergedData));
-// };
-
-const getSessionData = (key, defaultValue) => {
-  const stored = sessionStorage.getItem(key);
-  if (!stored) {
-    return defaultValue
-  }
-  return JSON.parse(stored);
-
-}
 const FlightSeats = () => {
   const [dataArrived, setDataArrived] = useState({});
   const [disableButton,setDissableButton]= useState(false)
   const {seatSelected, cantPassengers} = useContext(contextFligths)
+  const getSessionData = (key, defaultValue) => {
+    const stored = sessionStorage.getItem(key);
+    if (!stored) {
+      return defaultValue
+    }
+    return JSON.parse(stored);
+  
+  }
 
   useEffect(() => {
-    // mergeSessionData();
     const storageData = getSessionData('user', true);
     setDataArrived({...storageData});
-    console.log(dataArrived);
    }, []);
 
    useEffect(()=>{

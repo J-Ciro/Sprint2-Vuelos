@@ -21,7 +21,22 @@
   color: white;
 }
 
+.active-fast {
+  background-color: #a70b6c;
+  color: white;
+}
+
 .selected {
   background-color: white;
   border: 2px solid #a70b6c;
+}
+
+.asientos-normales,
+.asientos-especiales{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
