@@ -7,7 +7,7 @@ const typePassengers = [
   {
     title: "Adultos",
     age: "(13 + años)",
-    type: "adult",
+    type: "Adult",
   },
   {
     title: "Niños",

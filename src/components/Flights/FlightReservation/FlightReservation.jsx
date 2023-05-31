@@ -91,7 +91,7 @@ const FlightReservation = ({ title, passengers = [] }) => {
             <li>
               <h5 className="reservation__quantity">
               Adultos: {
-                passengers.adult
+                passengers.Adult
               }
               </h5>
             </li>

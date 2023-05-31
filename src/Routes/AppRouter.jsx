@@ -22,7 +22,7 @@ export const AppRouter = () => {
     code: "",
   });
 
-  const [seatSelected,setSeatSelected] =useState({seatOrigen:[],seatDestiny:[]});
+  const [seatSelected,setSeatSelected] =useState({seatOrigen:['A1','B2','C3','D3'],seatDestiny:['A1','B2','C3','D3']});
   const [costValue, setCostValue]= useState({
       tarifaBase:null,
       tarifaBaseDescuento:null,
@@ -58,7 +58,8 @@ export const AppRouter = () => {
               fligthValue,
               setFligthValue,
               costOptionalServices,
-              setCostOptionalServices
+              setCostOptionalServices,
+              cantPassengers
             }}
           >
             <Routes>

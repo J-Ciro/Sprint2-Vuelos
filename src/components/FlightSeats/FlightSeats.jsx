@@ -1,11 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import "./FlightSeats.scss";
 import { useNavigate } from "react-router-dom";
 import FlightArriveLanding from "./FlightArriveLanding/FlightArriveLanding";
 import FlightReservation from "../Flights/FlightReservation/FlightReservation";
 import FlightPrice from "../Flights/FlightPrice/FlightPrice";
 import ButtonData from "../ButtonData/ButtonData";
+import {contextFligths} from '../../Routes/AppRouter'
 import "../ButtonData/ButtonData.scss";
+
 // const mergeSessionData = () => {
 //   // Obtener los valores actuales del sessionStorage
 //   const value1 = sessionStorage.getItem("user");
@@ -33,6 +35,8 @@ const getSessionData = (key, defaultValue) => {
 }
 const FlightSeats = () => {
   const [dataArrived, setDataArrived] = useState({});
+  const [disableButton,setDissableButton]= useState(false)
+  const {seatSelected, cantPassengers} = useContext(contextFligths)
 
   useEffect(() => {
     // mergeSessionData();
@@ -41,9 +45,18 @@ const FlightSeats = () => {
     console.log(dataArrived);
    }, []);
 
+   useEffect(()=>{
+    if(dataArrived.travelRounded === 'true' && seatSelected.seatOrigen.length === cantPassengers && seatSelected.seatDestiny.length === cantPassengers){
+      setDissableButton(true)
+    }
+    if(dataArrived.travelRounded === 'false' && seatSelected.seatOrigen.length === cantPassengers){
+      setDissableButton(true)
+    }
+   },[seatSelected, cantPassengers, dataArrived])
+
    const navigate = useNavigate();
    const goPage=()=>{
-       navigate('/payment')
+       navigate('/payment') 
    } 
 
    const FlightCost = parseInt(dataArrived.origenPrice) + parseInt(dataArrived.destinyPrice);
@@ -78,7 +91,10 @@ const FlightSeats = () => {
             title={"TUA"}
           />
           <FlightPrice total={"$5000 USD"} />
-          <ButtonData label={"Pagar con Paypal"} goPage={goPage} isVisible={true}/>
+          {disableButton && (
+            <ButtonData label={"Pagar con Paypal"} goPage={goPage} isVisible={true}/>
+          )}
+          
         </div>
       </section>
     </div>
