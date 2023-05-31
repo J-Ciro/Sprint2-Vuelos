@@ -25,6 +25,9 @@ const Seats = ({ maxColumns, showSeatsRange, prueba }) => {
       const stored = sessionStorage.getItem(key);
       return stored ? JSON.parse(stored) : defaultValue;
     };
+    const userSeatsData = getSessionData("userSeats", {});
+    getSessionData(userSeatsData);
+    sessionStorage.setItem("userSeats", JSON.stringify(selectedSeat));
 
     const fetchData = async () => {
       try {
@@ -46,21 +49,15 @@ const Seats = ({ maxColumns, showSeatsRange, prueba }) => {
 
     const storageData = getSessionData("user", true);
     setDataArrived({ ...storageData });
-    const storageSeatsData = getSeatsData("seats", []);
-    setDataArrived({ ...storageData });
+    
 
     fetchData();
-    
-    // const sum = datr.reduce((total, value) => total + value, 0)
-    // setPassengers(sum)
-    // const passengersData = Object.values(dataArrived.passengers)
-   
-  }, []);
+  
+  }, [selectedSeat]);
 
   const FlightSeats = () => {
     
     if (!seatsData || !seatsData.fastExit) {
-      // Seats data is not available yet
       return null;
     }
 
@@ -84,16 +81,19 @@ const Seats = ({ maxColumns, showSeatsRange, prueba }) => {
     // Muestreo de A hasta C
     if (showSeatsRange === 'A-C') {
       for (let j = 0; j < row; j++) {
+        
         const arrayFilas = [];
 
         for (let i = 0; i < maxColumns; i++) {
           const codeSeat = `${String.fromCharCode(65 + i)}${j + 1}`;
-     
           const regresoVuelo = asientosSalida?.some(item => item.seats?.some(seat => seat.seat === codeSeat && seat.standar === "false"));
           const salidaVuelo = asientosSalida?.some(item => item.salidaVuelo?.some(seat => seat.seats.some(s => s.seat === codeSeat)));
-        
           const estaSeleccionado = selectedSeat?.some(item => item === codeSeat)
-          console.log(selectedSeat)  
+          let estaEnArray = false;
+          console.log(selectedSeat)
+          if (selectedSeat.includes(codeSeat)) {
+            estaEnArray = true;
+          }  
           arrayFilas.push(
             <span
               key={codeSeat}
@@ -223,6 +223,11 @@ const Seats = ({ maxColumns, showSeatsRange, prueba }) => {
     
   }
 
+  if (selectedSeat.length === sum) {
+    console.log(dataArrived)
+    sessionStorage.setItem("userSeats", JSON.stringify(selectedSeat));
+    
+  }
     return (
       <>
         {showSeatsRange === 'A-C' && (

@@ -9,6 +9,8 @@ import "../ButtonData/ButtonData.scss";
 
 const FlightSeats = () => {
   const [dataArrived, setDataArrived] = useState({});
+  const [userSeats, setUserSeats] = useState([]);
+
   const getSessionData = (key, defaultValue) => {
     const stored = sessionStorage.getItem(key);
     if (!stored) {
@@ -19,11 +21,18 @@ const FlightSeats = () => {
   }
 
   useEffect(() => {
-    // mergeSessionData();
+    
     const storageData = getSessionData('user', true);
     setDataArrived({...storageData});
-    // console.log(dataArrived);
-   }, []);
+    const userSeatsData = getSessionData("userSeats", []);
+    setUserSeats((prevUserSeats) => {
+      // Ensure that the state is only updated once
+      if (prevUserSeats.length === 0 && userSeatsData.length > 0) {
+        return userSeatsData;
+      }
+      return prevUserSeats;
+    });
+  }, [userSeats]);
 
    const navigate = useNavigate();
    const goPage=()=>{
@@ -32,6 +41,7 @@ const FlightSeats = () => {
 
    const FlightCost = parseInt(dataArrived.origenPrice) + parseInt(dataArrived.destinyPrice);
    const ivaTotal = parseInt(FlightCost) + 25;
+   const seatPrice = parseInt(userSeats.length) * 10;
 
   return (
     <div className="mainn">
@@ -50,7 +60,7 @@ const FlightSeats = () => {
             title={"Costo de Vuelo"}
           />
           <FlightPrice
-            prices={["$10 USD", "$20 USD"]}
+            prices={[`$ ${seatPrice}`, "$20 USD"]}
             label={["Selecciona tu asiento ", "IVA Tarifa"]}
             total={"$5000 USD"}
             title={"Servicios Opcionales"}

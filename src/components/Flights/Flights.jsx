@@ -25,8 +25,8 @@ const Flights = () => {
   const [btnState, setBtnState] = useState();
   const [isDepartureSelected, setIsDepartureSelected] = useState(false);
   const [isReturnSelected, setIsReturnSelected] = useState(false);
-
-  useEffect(() => {
+  const [userSeats, setUserSeats] = useState([])
+   useEffect(() => {
     const storageData = getSessionData("user", true);
     setDataArrived({ ...storageData });
 
@@ -59,6 +59,7 @@ const Flights = () => {
 
     const salidaVueloSessionData = getSessionData("salidaVuelo", {});
     const vueloRegresoSessionData = getSessionData("vueloRegreso", {});
+    
     setSalidaVueloData(salidaVueloSessionData);
     setVueloRegresoData(vueloRegresoSessionData);
 
