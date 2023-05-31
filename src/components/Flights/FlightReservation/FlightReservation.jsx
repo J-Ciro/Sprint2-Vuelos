@@ -37,9 +37,6 @@ const getDateData2 = (key, defaultValue) => {
 
 }
 
-
-
-
 const FlightReservation = ({ title, passengers = [] }) => {
   const [dataArrived, setDataArrived] = useState({});
   const [dateArrived, setDateArrived] = useState({});
@@ -48,23 +45,17 @@ const FlightReservation = ({ title, passengers = [] }) => {
   useEffect(() => {
     const storageData = getSessionData('user', true);
     setDataArrived({ ...storageData });
-  }, []);
-  
-  useEffect(() => {
+ 
     const dateStorage = getDateData('salidaVuelo', true);
     setDateArrived((prevDateArrived) => {
-      // Compare the previous and new dateArrived values
+      
       if (prevDateArrived.startHour === dateStorage.startHour && prevDateArrived.finalHour === dateStorage.finalHour) {
         // No changes, return the previous value
         return {...prevDateArrived};
-    
       }
-      // Changes detected, update the value with new data
+      
       return { ...dateStorage };
     });
-  }, []);// Problema de que se renderiza infinitamente
-  
-  useEffect(() => {
     const dateStorage2 = getDateData2('vueloRegreso', true);
     setDateArrived2((prevDateArrived) => {
       // Compare the previous and new dateArrived values
@@ -73,13 +64,11 @@ const FlightReservation = ({ title, passengers = [] }) => {
         return {...prevDateArrived};
     
       }
-      // Changes detected, update the value with new data
+      
       return { ...dateStorage2 };
     });
-  }, []);// Problema de que se renderiza infinitamente
-
-
-
+ 
+  }, []);
 
   return (
     <div>
