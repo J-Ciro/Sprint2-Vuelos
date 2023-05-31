@@ -17,7 +17,7 @@ import "../ButtonData/ButtonData.scss";
 const FlightSeats = () => {
   const [dataArrived, setDataArrived] = useState({});
   const [disableButton,setDissableButton]= useState(false)
-  const {seatSelected, cantPassengers} = useContext(contextFligths)
+  const {seatSelected} = useContext(contextFligths)
   const getSessionData = (key, defaultValue) => {
     const stored = sessionStorage.getItem(key);
     if (!stored) {
@@ -31,18 +31,22 @@ const FlightSeats = () => {
     const storageData = getSessionData('user', true);
     setDataArrived({...storageData});
    }, []);
-
+console.log(dataArrived)
    useEffect(()=>{
-    if(dataArrived.travelRounded === 'true' && seatSelected.seatOrigen.length === cantPassengers && seatSelected.seatDestiny.length === cantPassengers){
-      setDissableButton(true)
+    if(dataArrived && dataArrived.passengers){
+      const cantPassengers=Object.values(dataArrived.passengers).reduce((a, b) => a + b, 0);  
+      if(dataArrived.travelRounded === 'true' && seatSelected.seatOrigen.length === cantPassengers && seatSelected.seatDestiny.length === cantPassengers){
+        setDissableButton(true)
+      }
+      if(dataArrived.travelRounded === 'false' && seatSelected.seatOrigen.length === cantPassengers){
+        setDissableButton(true)
+      } 
     }
-    if(dataArrived.travelRounded === 'false' && seatSelected.seatOrigen.length === cantPassengers){
-      setDissableButton(true)
-    }
-   },[seatSelected, cantPassengers, dataArrived])
+
+   },[seatSelected, dataArrived])
 
    const navigate = useNavigate();
-   const goPage=()=>{
+   const goPage=()=>{ 
        navigate('/payment') 
    } 
 

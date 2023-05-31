@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
@@ -10,13 +10,25 @@ import './payment-page.scss'
 import {contextFligths} from '../../Routes/AppRouter'
 
 const baseFlightsURL= 'https://vuelos-backend-production.up.railway.app/flights' 
-const basePassengersURL= 'https://vuelos-backend-production.up.railway.app/clients' 
 
 const PaymentPage = () => {
-    const {formValue,total,fligthValue,seatSelected, setDateDefaul, cantPassengers} = useContext(contextFligths)
+    const {seatSelected} = useContext(contextFligths)
     const navigate = useNavigate();
     const [formValues,setFormValues] = useState({})
+    const [user, setUser] =useState({})
     const [validated, setValidated] = useState(false);
+
+    useEffect(() => {
+        const getSessionData = (key, defaultValue) => {
+            const stored = sessionStorage.getItem(key);
+            return stored ? JSON.parse(stored) : defaultValue;
+        };
+        const storageData = getSessionData('user', true);
+        const storageDataVueloSalida = getSessionData('salidaVuelo', true);
+        const storageDataaVueloRegreso = getSessionData('vueloRegreso', true);
+        console.log({...storageData,salida:{...storageDataVueloSalida},regreso:{...storageDataaVueloRegreso}})
+        setUser({...storageData,salida:{...storageDataVueloSalida},regreso:{...storageDataaVueloRegreso}});
+    }, []);
 
     const onChangeValue=(e)=>{
         setFormValues({
@@ -46,21 +58,47 @@ const PaymentPage = () => {
                 confirmButtonText: 'Si, confirmar!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    axios.post(basePassengersURL, {
+                    const asientosSalida=[]
+                    const asientosRegreso=[]
+                    seatSelected.seatOrigen.map((item,index)=>{
+                        asientosSalida.push({
+                            "id": index,
+                            "seat": item
+                        })
+                    })
+                    seatSelected.seatDestiny.map((item,index)=>{
+                        asientosRegreso.push({
+                            "id": index,
+                            "seat": item
+                        })
+                    })
+                    axios.post(baseFlightsURL, {
                         name: formValues.name,
                         document: formValues.identification,
-                        flightsDestiny:fligthValue?.destiny?.id,
-                        flightsOrigin:fligthValue.origen.id,
+                        destiny:user.destiny,
+                        Origin:user.origen,
+                        salidaVuelo: [
+                            {
+                              startHor: user.salida.startHour,
+                              finalHour:  user.salida.finalHour,
+                              seats: [...asientosSalida]
+                            }
+                        ],
+                        vueloRegreso: [
+                            {
+                              startHor: user.regreso.startHour,
+                              finalHour:user.regreso.finalHour,
+                              seats: [...asientosRegreso]
+                            }
+                          ],
+                          passengers: [
+                            {
+                              ...user.passengers
+                            }
+                          ],
+                          "baggage-type": ""
                     }).then(async (response) => {
-                        const seatsUpdateOrigen = {Seats: [...fligthValue.origen.Seats,...seatSelected.seatOrigen]};
-                        await axios.patch(`${baseFlightsURL}/${fligthValue.origen.id}`, seatsUpdateOrigen);
-                        if(formValue.travelRounded === 'true'){
-                            const seatsUpdateDestiny = {Seats :[...fligthValue.destiny.Seats,...seatSelected.seatDestiny]};
-                            await axios.patch(`${baseFlightsURL}/${fligthValue.destiny.id}`, seatsUpdateDestiny);
-                            confirmData();
-                        } else{
-                            confirmData();
-                        }
+                        confirmData();
                     })
                 }
             });
@@ -68,20 +106,22 @@ const PaymentPage = () => {
     };
     
     const confirmData=()=>{
+        const cantPassengers=Object.values(user.passengers).reduce((a, b) => a + b, 0); 
+        const total = Number(user.origenPrice)+Number(user.destinyPrice)
         Swal.fire({
             icon: 'success',
             title: 'Compra exitosa!!!',
             html:  `<p>Tu datos generados son:</p>
-                    <p><b>origen</b>: ${formValue.origen}</p>
-                    <p><b>destino</b>: ${formValue.destiny?formValue.destiny:'--'}</p>
+                    <p><b>origen</b>: ${user.origen}</p>
+                    <p><b>destino</b>: ${user.destiny?user.destiny:'--'}</p>
                     <p><b>N° pasajeros</b>: ${cantPassengers}</p>
                     <p><b>Asientos</b>: ${seatSelected.seatOrigen.toString()},${seatSelected?.seatDestiny?.toString()}</p>
-                    <p><b>Vuelo</b>: ${formValue.codeOrigen}${formValue?.codeDestiny}</p>
+                    <p><b>Vuelo</b>: ${user.codeOrigen} - ${user?.codeDestiny}</p>
                     <p><b>Reserva</b>: ${formValues.identification}</p>
                     <p><b>Total</b>: ${total.toFixed(0)}</p>`
         }).then((result) => {
             if (result.isConfirmed) {
-                setDateDefaul()
+                sessionStorage.clear()
                 navigate('/')
             }
         });

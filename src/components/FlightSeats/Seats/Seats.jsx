@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
+import {contextFligths} from '../../../Routes/AppRouter'
 import './Seats.scss';
 
 
@@ -7,13 +8,22 @@ const ASIENTOS = 'https://vuelos-backend-production.up.railway.app/seats';
 const COMPRAS = 'https://vuelos-backend-production.up.railway.app/flights';
 
 const Seats = ({ maxColumns, showSeatsRange, prueba }) => {
+  const {setSeatSelected,seatSelected} = useContext(contextFligths)
   const [seatsData, setSeatsData] = useState(null);
   const [pucharseData, setPucharsesData] = useState(null);
   const [dataArrived, setDataArrived] = useState({});
   const [selectedSeat, setSelectedSeat] = useState([]);
   const [passengers, setPassengers] = useState();
 
-
+  useEffect(() => {
+    if(selectedSeat){
+      if(prueba == 'salida'){
+        setSeatSelected({...seatSelected,seatOrigen:[...selectedSeat]})
+      } else{
+        setSeatSelected({...seatSelected,seatDestiny:[...selectedSeat]})
+      }
+    }
+  },[selectedSeat])
 
   useEffect(() => {
     const getSessionData = (key, defaultValue) => {
@@ -91,24 +101,25 @@ const Seats = ({ maxColumns, showSeatsRange, prueba }) => {
      
           const regresoVuelo = asientosSalida?.some(item => item.seats?.some(seat => seat.seat === codeSeat && seat.standar === "false"));
           const salidaVuelo = asientosSalida?.some(item => item.salidaVuelo?.some(seat => seat.seats.some(s => s.seat === codeSeat)));
-        
+
           const estaSeleccionado = selectedSeat?.some(item => item === codeSeat)
-          console.log(selectedSeat)  
+
           arrayFilas.push(
             <span
               key={codeSeat}
               className={`main__seat ${salidaVuelo? 'active' :  estaSeleccionado? "selected" : ""}`}
               onClick={() => {
                 // console.log(selectedSeat)
+
                 if (selectedSeat.includes(codeSeat)) {
                   // If the seat is already selected, remove it from the array
                   setSelectedSeat(selectedSeat.filter((seat) => seat !== codeSeat));
+                  
                 } else if (selectedSeat.length < sum) {
                   // If the seat is not selected and the maximum number of seats is not reached, add it to the array
                   console.log(selectedSeat)
                   setSelectedSeat([...selectedSeat, codeSeat]);
                 }
-              
               }}
             >
               {codeSeat}
