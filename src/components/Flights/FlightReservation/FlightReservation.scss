@@ -1,0 +1,76 @@
+.reservation {
+  width: 20vw;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 0px 0px 5px 5px;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  @media screen and (max-width: 769px) {
+    width: 50vw;
+  }
+  @media screen and (max-width: 426px) {
+    width: 81vw;
+  }
+  &__quantity {
+    font-size: 1rem;
+  }
+  &__passengers {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    ul {
+      margin: 0;
+      list-style: none;
+      li {
+        margin-bottom: 5px;
+      }
+      h5 {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+    h2 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+  }
+  &__underline {
+    border-bottom: 1px solid black;
+    width: 20px;
+    height: 30px;
+  }
+  &__leave {
+    margin-bottom: 20px;
+  }
+  &__date {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  &__time {
+    color: gray;
+    font-size: 0.95rem;
+  }
+}
+.title {
+  font-family: "Wix Madefor Text", sans-serif;
+  background-color: #f1eff2;
+  width: 20vw;
+  height: 100%;
+  padding: 10px;
+  margin: 0px;
+  font-size: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  @media screen and (max-width: 769px) {
+    width: 50vw;
+  }
+  @media screen and (max-width: 426px) {
+    width: 81vw;
+  }
+}

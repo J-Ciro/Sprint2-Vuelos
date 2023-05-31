@@ -1,0 +1,157 @@
+.mainn {
+  &__seatsContent {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 20%;
+    flex-wrap: wrap;
+    margin: 0px 20px;
+    @media screen and (max-width: 769px) {
+      width: 50vw;
+      align-items: center;
+    }
+    @media screen and (max-width: 425px) {
+     margin: 0px;
+     width: 40vw;
+    }
+    
+  }
+  
+  &__contentData{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__chooseSeat {
+    display: flex;
+  }
+  &__seatsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    @media screen and (max-width: 769px) {
+      width: 30vw;
+    }
+    @media screen and (max-width:426px) {
+      width: 40vw;
+    }
+  }
+  &__seatsLetter {
+    display: flex;
+    gap: 11px;
+    align-items: center;
+    justify-content: center;
+  }
+  &__a,
+  &__b,
+  &__c {
+    background-color: white;
+    padding: 1em 1.3em;
+    gap: 10px;
+    font-size: 1rem;
+    width: 10px;
+    border-radius: 5px;
+    width: 53px;
+    height: 56px;
+    
+    
+    font-family: "Wix Madefor Text", sans-serif;
+    @media screen and (max-width:426px) {
+      width: 43px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__seats {
+    display: flex;
+    margin-bottom: 20px;
+    @media screen and (max-width: 426px) {
+      margin-bottom: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__numbers {
+    background-color: white;
+    /* background-color: white; */
+    padding: 1em 1.3em;
+    font-size: 1rem;
+    border-radius: 5px;
+    width: 53px;
+    height: 56px;
+    @media screen and (max-width:426px) {
+      width: 43px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__exitTitle {
+    span {
+      font-size: 0.8rem;
+    }
+  }
+  &__seatsNumbers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__fastExit,
+  &__standarTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.8em;
+    width: 40px;
+    text-align: center;
+    @media screen and (max-width:426px) {
+  
+      
+    }
+  }
+
+  &__standarSeats {
+    display: flex;
+    @media screen and (max-width: 769px) {
+      
+      align-items: center;
+      justify-content: space-evenly;
+    }
+   
+    @media screen and (max-width:426px) {
+      display: flex;
+      flex-direction: row;
+      width: 90vw;
+      justify-content: space-between;
+      gap: 0;
+      align-items: flex-end;
+      
+    }
+    
+  }
+  &__seatsStandar {
+    display: flex;
+    width: 20%;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0px 20px;
+    @media screen and (max-width: 769px) {
+      width: 30vw;
+    }
+     @media screen and (max-width:426px) {
+      width: 50vw;
+      margin: 0px;
+      gap: 10px;
+    }
+  }
+}
