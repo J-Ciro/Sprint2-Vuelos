@@ -23,7 +23,6 @@ const Flights = () => {
   const [salidaVueloData, setSalidaVueloData] = useState({});
   const [vueloRegresoData, setVueloRegresoData] = useState({});
   const [btnState, setBtnState] = useState();
-
   const [isDepartureSelected, setIsDepartureSelected] = useState(false);
   const [isReturnSelected, setIsReturnSelected] = useState(false);
 
@@ -57,7 +56,20 @@ const Flights = () => {
     setDepartureTime(newDepartureTime);
     setFinalTime(newFinalTime);
     setTimeBetween(newTimeBetween);
-  }, []);
+
+    const salidaVueloSessionData = getSessionData("salidaVuelo", {});
+    const vueloRegresoSessionData = getSessionData("vueloRegreso", {});
+    setSalidaVueloData(salidaVueloSessionData);
+    setVueloRegresoData(vueloRegresoSessionData);
+
+    if (!isDepartureSelected || !isReturnSelected) {
+      setBtnState(false);
+    } else {
+      setBtnState(true);
+    }
+    console.log(isDepartureSelected, isReturnSelected)
+
+  }, [isDepartureSelected, isReturnSelected]);
 
   const handleDepartureTimeClick = (selectedDepartureTime, selectedFinalTime) => {
     if (isDepartureSelected && selectedDepartureTime === departureTime) {
@@ -97,26 +109,12 @@ const Flights = () => {
     sessionStorage.setItem("vueloRegreso", JSON.stringify(sessionStorageData2));
   };
 
-  useEffect(() => {
-    const salidaVueloSessionData = getSessionData("salidaVuelo", {});
-    const vueloRegresoSessionData = getSessionData("vueloRegreso", {});
-    setSalidaVueloData(salidaVueloSessionData);
-    setVueloRegresoData(vueloRegresoSessionData);
-  }, []);
-
   const navigate = useNavigate();
   const goPage = () => {
     navigate("seats");
   };
 
-  useEffect(() => {
-    if (!isDepartureSelected || !isReturnSelected) {
-      setBtnState(false);
-    } else {
-      setBtnState(true);
-    }
-    console.log(isDepartureSelected, isReturnSelected)
-  }, [isDepartureSelected, isReturnSelected]);
+
 
   const total = parseInt(dataArrived.origenPrice) + parseInt(dataArrived.destinyPrice);
   const ivaTotal = parseInt(total) + 25;
